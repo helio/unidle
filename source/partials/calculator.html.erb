@@ -1,0 +1,98 @@
+<section class="calc">
+  <div class="calc__wrapper">
+    <div class="calc__inner">
+      <h1 class="display c--white a--center">Calculate your waste</h1>
+
+      <form class="form">
+        <div class="form__row">
+          <div class="form__cell">
+            <label class="small small--upper c--white">
+              Sever cost
+            </label>
+            <div class="input">
+              <div class="input__type">
+                $
+              </div>
+              <input type="text" class="input__input input__input--pre" placeholder="0.00">
+            </div>
+          </div>
+          <div class="form__cell">
+            <label class="small small--upper c--white">
+              CPU type
+            </label>
+            <div class="input">
+              <select class="input__input input__input--select">
+                <option>Intel i7</option>
+                <option>Option</option>
+                <option>Option</option>
+                <option>Option</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__cell">
+            <label class="small small--upper c--white">
+              Available memory (gb)
+            </label>
+            <div class="input">
+              <input type="text" class="input__input" placeholder="516">
+            </div>
+          </div>
+          <div class="form__cell">
+            <label class="small small--upper c--white">
+              CPU type
+            </label>
+            <div class="input">
+              <select class="input__input input__input--select">
+                <option>Arsys</option>
+                <option>Option</option>
+                <option>Option</option>
+                <option>Option</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="small c--white small--upper form__title">Application running</p>
+        <div class="form__row form__row--range">
+          <label class="small small--upper c--white">
+            CPU
+          </label>
+          <div class="range">
+            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
+            <label class="small small--upper c--white js-range-value range__label">50%</label>
+          </div>
+        </div>
+        <div class="form__row form__row--range">
+          <label class="small small--upper c--white">
+            Memory
+          </label>
+          <div class="range">
+            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
+            <label class="small small--upper c--white js-range-value range__label">50%</label>
+          </div>
+        </div>
+        <div class="form__row form__row--range">
+          <label class="small small--upper c--white">
+            Daily Volatility
+          </label>
+          <div class="range">
+            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
+            <label class="small small--upper c--white js-range-value range__label">50%</label>
+          </div>
+        </div>
+        <div class="form__row form__row--range">
+          <label class="small small--upper c--white">
+            Parallelability
+          </label>
+          <div class="range">
+            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
+            <label class="small small--upper c--white js-range-value range__label">50%</label>
+          </div>
+        </div>
+        <input type="submit" value="Calculate your waste" class="button button--wide form__button">
+      </form>
+    </div>
+  </div>
+</section>

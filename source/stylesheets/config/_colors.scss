@@ -1,49 +1,36 @@
+
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 Config
-2.0 Components
-3.0 Layout
-4.0 Blocks
+1.0 Neutral
+2.0 Main Colors
+3.0 Color Pallete
+4.0 Grey Scale
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1.0 Config
+1.0 Neutral
 --------------------------------------------------------------*/
 
-@charset "utf-8";
-
-@import "config/reset";
-
-@import "config/variables";
-
-@import "config/layout";
-
-@import "config/colors";
-@import "config/mixins";
-@import "config/type";
-
-// @import "config/variables";
+$white: #FFF;
+$black: #1F1F1F;
 
 /*--------------------------------------------------------------
-2.0 Components
+2.0 Main Colors
 --------------------------------------------------------------*/
 
-@import "components/buttons";
-@import "components/input";
+$orange: #F7814A;
 
 /*--------------------------------------------------------------
-3.0 Layout
+3.0 Color Pallete
 --------------------------------------------------------------*/
-
-// @import "layout/layout";
 
 /*--------------------------------------------------------------
-4.0 Blocks
+4.0 Grey Scale
 --------------------------------------------------------------*/
 
-@import "blocks/topbar";
-@import "blocks/hero";
-@import "blocks/vision";
-@import "blocks/conversion";
-@import "blocks/calc";
+$dark-grey: #000714;
+$iron: #202B47;
+$grey: #ADB0B8;
+$light-grey: #E6E7E9;
+$dirty-white: #F4F4F4;

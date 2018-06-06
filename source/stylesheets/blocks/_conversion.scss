@@ -1,0 +1,57 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Conversion
+--------------------------------------------------------------*/
+
+.conversion {
+  padding-top: 74px;
+
+  @media (max-width: 600px) {
+    padding-top: 48px;
+  }
+}
+
+/*--------------------------------------------------------------
+1.0 Conversion
+--------------------------------------------------------------*/
+
+
+.newsletter {
+  background-color: rgba($dirty-white, 0.8);
+  padding: 20px;
+  width: 100%;
+  max-width: 536px;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 17px;
+
+  // .newsletter__inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 24px;
+  }
+
+  // .newsletter__input
+  &__input {
+    font-size: 18px;
+    line-height: 1.55em;
+    color: $dark-grey;
+    padding-top: 4px;
+
+    width: 100%;
+
+    @include placeholder {
+      font-size: 18px;
+      line-height: 1.55em;
+
+      opacity: 0.3;
+      color: $dark-grey;
+    }
+  }
+}
