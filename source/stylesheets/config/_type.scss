@@ -16,13 +16,14 @@ html {
 
 	box-sizing: border-box;
 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
 	-webkit-tap-highwhite-color: transparent;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /*--------------------------------------------------------------
@@ -42,11 +43,11 @@ a {
 --------------------------------------------------------------*/
 
 .display {
+  letter-spacing: -0.4px;
+
   font-size: 54px;
   font-weight: bold;
   line-height: 1.05em;
-
-  letter-spacing: -0.4px;
 
 	@media (max-width: 600px) {
 		font-size: 40px;
@@ -58,11 +59,11 @@ a {
 --------------------------------------------------------------*/
 
 .heading {
+  letter-spacing: -0.25px;
+
   font-size: 34px;
   font-weight: bold;
   line-height: 1.18em;
-
-  letter-spacing: -0.25px;
 
 	@media (max-width: 600px) {
 		font-size: 28px;
@@ -74,10 +75,10 @@ a {
 --------------------------------------------------------------*/
 
 .text {
+  letter-spacing: 0.1px;
+
   font-size: 16px;
   line-height: 1.55em;
-
-  letter-spacing: -0.4px;
 
 	// .display + .text
 	.display + & {
@@ -101,8 +102,8 @@ a {
 
 .small {
   font-size: 12px;
-  line-height: 1.33em;
 	font-weight: 600;
+  line-height: 1.33em;
 
   // Style modifier
   &--upper {
@@ -120,6 +121,10 @@ a {
 
 .c--orange {
   color: $orange;
+}
+
+.c--grey {
+  color: $grey;
 }
 
 /*--------------------------------------------------------------

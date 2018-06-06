@@ -18,40 +18,42 @@
 
 
 .newsletter {
-  background-color: rgba($dirty-white, 0.8);
-  padding: 20px;
-  width: 100%;
-  max-width: 536px;
-  border-radius: 4px;
-
   display: flex;
   justify-content: space-between;
 
+  width: 100%;
+  max-width: 536px;
   margin-top: 17px;
+  padding: 20px;
+
+  border-radius: 4px;
+  background-color: rgba($dirty-white, 0.8);
 
   // .newsletter__inner
   &__inner {
     display: flex;
     flex-direction: column;
+
     width: 100%;
     padding-right: 24px;
   }
 
   // .newsletter__input
   &__input {
-    font-size: 18px;
-    line-height: 1.55em;
-    color: $dark-grey;
+    width: 100%;
     padding-top: 4px;
 
-    width: 100%;
+    color: $dark-grey;
+
+    font-size: 18px;
+    line-height: 1.55em;
 
     @include placeholder {
-      font-size: 18px;
-      line-height: 1.55em;
-
       opacity: 0.3;
       color: $dark-grey;
+
+      font-size: 18px;
+      line-height: 1.55em;
     }
   }
 }

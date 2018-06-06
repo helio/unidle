@@ -9,10 +9,14 @@
 --------------------------------------------------------------*/
 
 .button {
+  display: inline-block;
+
   padding: 8px 20px;
-  border-radius: 4px;
+
+  cursor: pointer;
 
   color: $white;
+  border-radius: 4px;
   background-color: $orange;
 
   font-size: 16px;
@@ -20,8 +24,7 @@
 
   -webkit-appearance: none;
 
-  cursor: pointer;
-
+  // .button + .button
   & + & {
     margin-left: 16px;
   }
@@ -49,14 +52,15 @@
 
     // .button--dark:hover
     &:hover {
-      background-color: $dark-grey;
       opacity: 0.85;
+      background-color: $dark-grey;
     }
   }
 
   // .button--wide
   &--wide {
     width: 100%;
+
     text-align: center;
   }
 }

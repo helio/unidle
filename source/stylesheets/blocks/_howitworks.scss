@@ -1,0 +1,145 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 How It Works
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 How It Works
+--------------------------------------------------------------*/
+
+.how {
+  margin: 120px auto;
+
+  @media (max-width: 600px) {
+    margin: 80px auto;
+  }
+
+  // .how__button
+  &__button {
+    margin-top: 32px;
+  }
+
+  // .how__inner
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    @media (max-width: 768px) {
+      display: block;
+
+      margin-top: 128px;
+      margin-bottom: 24px;
+    }
+  }
+
+  // .how__title
+  &__title {
+    flex-basis: 50%;
+    flex-grow: 0;
+  }
+
+  // .how__video
+  &__video {
+    position: relative;
+
+    overflow: hidden;
+    flex-basis: 50%;
+    flex-grow: 0;
+
+    width: 100%;
+
+    border-radius: 8px;
+
+    @media (max-width: 768px) {
+      margin-top: 40px;
+    }
+
+    // .how__video:after
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      content: '';
+
+      background-color: rgba($dark-grey, 0.6);
+
+      @include default-transition(background-color);
+    }
+
+    // .how__video:hover
+    &:hover {
+
+      // .how__video:hover:after
+      &:after {
+        background-color: rgba($dark-grey, 0.5);
+      }
+
+      // .how__video:hover .play
+      & .play {
+        background-color: rgba($white, 0.2);
+      }
+    }
+  }
+
+  // .how__cols
+  &__cols {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1024px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  // .how__col
+  &__col {
+    width: calc((100% - 96px) / 4);
+    margin-top: 96px;
+
+    @media (max-width: 1024px) {
+      flex-shrink: 0;
+
+      width: calc((100% - 32px) / 2);
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 64px;
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      margin-top: 32px;
+
+      img {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      margin: 0;
+      margin-top: 32px;
+    }
+
+    // .how__col h4
+    h4 {
+      margin-top: 24px;
+    }
+
+    // .how__col h4 + .text
+    h4 + .text {
+      padding-top: 12px;
+    }
+  }
+}
