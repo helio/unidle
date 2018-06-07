@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5.1277704,-2.07168062e-16 L194.87223,2.07168062e-16 C196.655267,-1.2037061e-16 197.30184,0.185651222 197.953691,0.534265408 C198.605543,0.882879593 199.11712,1.39445674 199.465735,2.04630859 C199.814349,2.69816044 200,3.34473292 200,5.1277704 L200,146.87223 C200,148.655267 199.814349,149.30184 199.465735,149.953691 C199.11712,150.605543 198.605543,151.11712 197.953691,151.465735 C197.30184,151.814349 196.655267,152 194.87223,152 L5.1277704,152 C3.34473292,152 2.69816044,151.814349 2.04630859,151.465735 C1.39445674,151.11712 0.882879593,150.605543 0.534265408,149.953691 C0.185651222,149.30184 8.02470732e-17,148.655267 -1.38112041e-16,146.87223 L1.38112041e-16,5.1277704 C-8.02470732e-17,3.34473292 0.185651222,2.69816044 0.534265408,2.04630859 C0.882879593,1.39445674 1.39445674,0.882879593 2.04630859,0.534265408 C2.69816044,0.185651222 3.34473292,1.2037061e-16 5.1277704,-2.07168062e-16 Z" id="path-1"></path>
+        <filter x="-23.5%" y="-28.3%" width="147.0%" height="161.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0352941176   0 0 0 0 0.0470588235   0 0 0 0 0.0784313725  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="🖥-Homepage---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Idle-LandingPage" transform="translate(-340.000000, -5084.000000)">
+            <g id="#1" transform="translate(172.000000, 4964.000000)">
+                <g id="bg-copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="16x16/Icon-ArrowDown" transform="translate(168.000000, 120.000000)">
+                    <rect id="Rectangle-2" x="0" y="0" width="16" height="16"></rect>
+                    <polyline id="Path-2" stroke="#000714" stroke-width="1.5" transform="translate(11.500000, 8.000000) rotate(-90.000000) translate(-11.500000, -8.000000) " points="6.5 5.5 11.5 10.5 16.5 5.5"></polyline>
+                    <path d="M14,8 L2,8" id="Path-3" stroke="#000714" stroke-width="1.5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

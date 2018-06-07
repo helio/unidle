@@ -1,0 +1,53 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Topbar
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Topbar
+--------------------------------------------------------------*/
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 24px 0;
+
+  // .topbar__wrapper
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // .topbar__nav
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  // .topbar__link
+  &__link {
+    margin-left: 24px;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+
+    // .topbar__link:hover
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  // .topbar__icon
+  &__icon {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,228 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Hero
+2.0 Cards
+3.0 Partners
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Hero
+--------------------------------------------------------------*/
+
+.values {
+  padding: 120px 0 0 0;
+
+  background-color: $dark-grey;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100vw;
+    height: 122px;
+
+    content: '';
+
+    background-color: $white;
+  }
+
+  @media (max-width: 600px) {
+    padding: 80px 0px 0 0;
+  }
+
+  // .values__title
+  &__title {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  // .values__cards
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    padding-top: 64px;
+
+    @media (max-width: 600px) {
+      padding-top: 48px;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+2.0 Cards
+--------------------------------------------------------------*/
+
+.card {
+  position: relative;
+
+  display: block;
+  overflow: hidden;
+
+  width: calc((100% - 64px) / 3);
+  max-height: 410px;
+  margin-bottom: 32px;
+
+  border-radius: 4px;
+  background-color: #111721;
+
+  @media (max-width: 1024px) {
+    width: calc((100% - 32px) / 2);
+  }
+
+  @media (max-width: 768px) {
+    width: calc((100% - 24px) / 2);
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  // .card__image
+  &__image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+  }
+
+  // .card__inner
+  &__inner {
+    position: relative;
+
+    padding: 24px;
+
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
+  }
+
+  // .card__more
+  &__more {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    padding-bottom: 24px;
+
+    background-image: linear-gradient(-180deg, rgba(17,23,33,0.00) 39%, #111721 96%);
+
+    @include default-transition(opacity);
+
+    // .card__more:hover
+    &:hover {
+      opacity: 0.95;
+      background-image: linear-gradient(-180deg, rgba(17,23,33,0.00) 39%, #111721 96%);
+    }
+  }
+
+  // .card__title
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  // .card__list
+  &__list {
+    margin-bottom: 12px;
+    padding-left: 32px;
+
+    // .card__list.text
+    &.text {
+      padding-top: 0px;
+    }
+  }
+
+  // .card__text
+  &__text {
+    position: relative;
+
+    margin-bottom: 16px;
+    padding-left: 32px;
+
+    // .card__text.text
+    &.text {
+      padding-top: 0px;
+    }
+
+    // .card__text:before
+    &:before {
+      position: absolute;
+      top: 2px;
+      left: 0;
+
+      display: block;
+
+      width: 21px;
+      height: 21px;
+
+      content: '';
+
+      border-radius: 50%;
+      background-color: rgba($white, 0.1);
+    }
+
+    // .card__text:after
+    &:after {
+      position: absolute;
+      top: 9px;
+      left: 6px;
+
+      display: block;
+
+      width: 9px;
+      height: 5px;
+
+      content: '';
+      transform: rotate(-45deg);
+
+      border-bottom: 2px solid $white;
+      border-left: 2px solid $white;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+3.0 Partners
+--------------------------------------------------------------*/
+
+.partners {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    margin-top: 32px;
+  }
+
+  // .partners__list
+  &__list {
+    margin: 16px 24px;
+
+    @media (max-width: 600px) {
+      margin: 16px 16px;
+    }
+  }
+
+  // .partners__image
+  &__image {
+    max-height: 28px;
+    width: auto;
+  }
+}

@@ -1,0 +1,48 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Play button
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Play button
+--------------------------------------------------------------*/
+
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+
+  width: 56px;
+  height: 56px;
+  background-color: rgba($white, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include default-transition(background-color);
+
+  z-index: 2;
+
+  // .play:before
+  &:before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid $white;
+    margin-right: -6px;
+  }
+
+  // .play:hover
+  &:hover {
+    // .play:hover:before
+    &:before {
+      border-left: 20px solid rgba($white, 0.8);
+    }
+  }
+}

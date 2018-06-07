@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Vision
+2.0 Baseline grid
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Vision
+--------------------------------------------------------------*/
+
+.vision {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  margin-top: 80px;
+
+  background-image: url("/images/line.png");
+  background-repeat: repeat;
+  background-size: 100% 28px;
+
+  @media (max-width: 600px) {
+    margin: 80px 0px;
+    margin-top: 64px;
+
+    background-image: none;
+  }
+
+  // .vision__content
+  &__content {
+    position: relative;
+
+    width: 712px;
+    padding: 122px 32px;
+
+    @media (max-width: 600px) {
+      padding: 0px 16px;
+    }
+
+    // .vision__content:before
+    &:before {
+      position: absolute;
+      top: -20px;
+      left: -32px;
+
+      width: 1px;
+      height: calc(100% + 20px);
+
+      content: '';
+
+      background-image: linear-gradient(-180deg, rgba(230,82,69,0.40) 0%, #FFFFFF 100%);
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+2.0 Baseline grid
+--------------------------------------------------------------*/
+
+// Rules to make text align with baseline grid
+.vision {
+  // .section__content .display + .text
+  .display + .text {
+    padding-top: 55px;
+
+    @media (max-width: 600px) {
+      padding-top: 28px;
+    }
+  }
+
+  // .section__content .text
+  .text {
+    line-height: 28px;
+  }
+
+  // .section__content .text + .text
+  .text + .text {
+    padding-top: 28px;
+  }
+}

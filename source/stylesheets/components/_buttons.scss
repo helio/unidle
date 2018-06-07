@@ -1,0 +1,66 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Button
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Button
+--------------------------------------------------------------*/
+
+.button {
+  display: inline-block;
+
+  padding: 8px 20px;
+
+  cursor: pointer;
+
+  color: $white;
+  border-radius: 4px;
+  background-color: $orange;
+
+  font-size: 16px;
+  line-height: 1.55em;
+
+  -webkit-appearance: none;
+
+  // .button + .button
+  & + & {
+    margin-left: 16px;
+  }
+
+  // .button:hover
+  &:hover {
+    background-color: darken($orange, 5%);
+  }
+
+  // .button--grey
+  &--grey {
+    color: $dark-grey;
+    background-color: $light-grey;
+
+    // .button--grey:hover
+    &:hover {
+      background-color: darken($light-grey, 5%);
+    }
+  }
+
+  // .button--dark
+  &--dark {
+    color: $white;
+    background-color: $dark-grey;
+
+    // .button--dark:hover
+    &:hover {
+      opacity: 0.85;
+      background-color: $dark-grey;
+    }
+  }
+
+  // .button--wide
+  &--wide {
+    width: 100%;
+
+    text-align: center;
+  }
+}
