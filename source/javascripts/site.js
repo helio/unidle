@@ -21,3 +21,25 @@ for (var i = 0; i < rangeEl.length; i++) {
     updateRangeValue(this, this.value);
   });
 }
+
+// Open Modal
+var openModal = document.querySelectorAll('.js-open-modal');
+var closeModal = document.querySelector('.js-close-modal');
+var html = document.getElementsByTagName('html')[0];
+
+const modal = document.querySelector('.js-modal');
+let openIndex;
+
+const toggleModal = (e, i) => {
+  e.preventDefault();
+  if(i >= 0) {
+    openIndex = i;
+  }
+
+  html.classList.toggle('scroll-lock')
+  modal.classList.toggle(`is-open-${i >= 0 ? i : openIndex}`)
+}
+
+openModal.forEach((el, i) => el.addEventListener('click', (e) => toggleModal(e, i)));
+
+closeModal.addEventListener('click', toggleModal);
