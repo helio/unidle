@@ -1,0 +1,160 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Footer
+2.0 github
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1.0 Footer
+--------------------------------------------------------------*/
+
+.footer {
+  position: relative;
+
+  width: 100%;
+  margin-top: 120px;
+  padding: 80px 0 136px 0;
+
+  @media (max-width: 600px) {
+    margin-top: 64px;
+    padding: 56px 0 64px 0;
+  }
+
+  // .footer:before
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    content: '';
+
+    background: linear-gradient(90deg, rgba($dark-grey,0) 0%, rgba($dark-grey,0.1) 49.95%, rgba($dark-grey,0) 100%);
+  }
+
+  // .footer__inner
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  // .footer__col
+  &__col {
+    @media (max-width: 1024px) {
+      flex-basis: calc((100% - 64px) / 2);
+      justify-content: flex-start;
+
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 600px) {
+      flex-basis: 100%;
+      justify-content: flex-start;
+
+      // .footer__col_last-child
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  // .footer__logo
+  &__logo {
+    width: auto;
+    max-height: 24px;
+  }
+
+  // .footer__title
+  &__title {
+    margin-bottom: 16px;
+
+    font-weight: bold;
+  }
+
+  // .footer__text
+  &__text {
+    margin-bottom: 4px;
+  }
+
+  // .footer__link
+  &__link {
+    display: flex;
+
+    margin-bottom: 16px;
+
+    // .footer__link:last-child
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  // .footer__icon
+  &__icon {
+    flex-basis: 24px;
+    flex-shrink: 0;
+
+    height: auto;
+    margin-right: 8px;
+
+    opacity: 0.8;
+
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    @include default-transition();
+
+    // .footer__link:hover .footer__icon
+    .footer__link:hover & {
+      opacity: 1;
+
+      -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(0%);
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+2.0 Github
+--------------------------------------------------------------*/
+
+.github {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px;
+
+  border-radius: 4px;
+  background-color: $dirty-white;
+
+  // .github__star
+  &__star {
+    display: flex;
+    align-items: center;
+
+    padding: 8px 24px;
+
+    border-radius: 4px;
+    background-color: $orange;
+
+    // .github__star:hover
+    &:hover {
+      background-color: darken($orange , 10%);
+    }
+
+    // .github__star img
+    img {
+      margin-right: 6px;
+    }
+  }
+
+  // .github__counter
+  &__counter {
+    padding: 0 20px;
+  }
+}
