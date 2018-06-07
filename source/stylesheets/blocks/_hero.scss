@@ -18,10 +18,10 @@
   height: 100vh;
   max-height: 705px;
 
+  @include retina-background-image("/images/idle--landingpage--hero" , "png");
+
   background-position: top right;
   background-size: auto 100%;
-
-  @include retina-background-image("/images/idle--landingpage--hero" , "png");
 
   @media (max-width: 1024px) {
     display: block;
