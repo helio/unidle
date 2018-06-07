@@ -8,6 +8,10 @@
 1.0 Layout
 --------------------------------------------------------------*/
 
+html.scroll-lock {
+  overflow: hidden;
+}
+
 .wrapper {
   width: 100%;
   max-width: 1264px;
