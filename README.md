@@ -4,7 +4,7 @@ Project built with [Middleman](https://middlemanapp.com/)
 
 ## First-run only
 
-Make sure you have middleman (and [bundler](https://bundler.io/]) installed.
+Make sure you have middleman (and [bundler](https://bundler.io/])) installed.
 
 ```
 gem install middleman
