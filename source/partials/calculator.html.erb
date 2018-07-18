@@ -1,4 +1,4 @@
-<section class="calc">
+<section id="calculator" class="calc calculator-js">
   <div class="calc__wrapper">
     <div class="calc__inner">
       <h1 class="display c--white a--center">Calculate your waste</h1>
@@ -13,7 +13,7 @@
               <div class="input__type">
                 $
               </div>
-              <input type="text" class="input__input input__input--pre" placeholder="0.00">
+              <input id="server-cost" class="input__input input__input--pre" placeholder="0.00" value="">
             </div>
           </div>
           <div class="form__cell">
@@ -91,7 +91,73 @@
             <label class="small small--upper c--white js-range-value range__label">50%</label>
           </div>
         </div>
-        <input type="submit" value="Calculate your waste" class="button button--wide form__button">
+        <input id="calculate" type="button" value="Calculate your waste" class="button button--wide form__button" onclick="results(this)">
+      </form>
+    </div>
+  </div>
+</section>
+<section id="calculator" class="calc results calculator-results-js ">
+  <div class="calc__wrapper">
+    <div class="calc__inner">
+      <h1 class="display c--white a--center">Calculate your waste</h1>
+      <form class="form">
+        <div class="form__row">
+          <div class="form__cell a--center">
+            <label class="small small--upper c--white">
+              Price
+            </label>
+            <h2 class="title c--white">$38.00</h2>
+          </div>
+          <div class="form__cell a--center">
+             <label class="small small--upper c--white">
+              Waste
+            </label>
+            <h2 class="title c--white">3.6 tons</h2>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="form__row">
+          <div class="form__cell form__cell--full form__cell--balance a--center">
+            <label class="small small--upper c--white">
+              Balance
+            </label>
+            <h2 class="title c--white">126 tons</h2>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__cell form__cell--full a--center">
+            <div class="results__trees-wrapper">
+              <div class="results__trees-wrapper__row">
+                <img class="thumb" src="./images/tree-active.svg">
+                <img class="thumb" src="./images/tree-active.svg">
+                <img class="thumb" src="./images/tree-active.svg">
+                <img class="thumb" src="./images/tree-active.svg">
+              </div>
+              <div class="results__trees-wrapper__row">
+                <img class="thumb" src="./images/tree-active.svg">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+              </div>
+              <div class="results__trees-wrapper__row">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+              </div>
+              <div class="results__trees-wrapper__row">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+                <img class="thumb" src="./images/tree.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <button id="reset" type="button" class="button button--reset" onclick="results(this)">
+          <img class="icon-reset" src="./images/icon-reset.svg">Reset
+        </button>
       </form>
     </div>
   </div>
