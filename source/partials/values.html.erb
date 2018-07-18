@@ -127,12 +127,22 @@
           <span class="c--white">Join our list.</span>
         </h1>
       </div>
-      <div class="newsletter">
-        <div class="newsletter__inner">
-          <label class="small">Your email</label>
-          <input type="email" placeholder="your@email.com" class="newsletter__input">
+      <div class="newsletter-wrapper">
+        <form class="newsletter newsletter-js" action="#" method="post" onsubmit="return submitNewsletterBottom()">
+          <div class="newsletter__inner">
+            <label class="small">Your email</label>
+            <input id="email2" type="email" placeholder="your@email.com" class="newsletter__input" onfocus="cleanErrors()">
+          </div>
+          <button type="submit" class="button button--dark button-submit-js">Submit</button>
+        </form>
+        <label class="text--big c--white error error-newsletter-js"></label>
+        <div class="newsletter-result newsletter-result-js">
+          <img class="img-success" src="./images/success@2x.png">
+          <div class="newsletter-result__wrapper">
+            <p class="text">Your request has been sent.</p>
+            <p class="text--bold">Thank you! 🙌 </p>
+          </div>
         </div>
-        <button type="submit" class="button button--dark">Submit</button>
       </div>
     </div>
   </div>

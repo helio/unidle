@@ -20,12 +20,20 @@
         <span class="c--orange">Be the first.</span>
         Join our list
       </h2>
-      <div class="newsletter">
+      <form class="newsletter newsletter-js" action="#" method="post" onsubmit="return submitNewsletterTop()">
         <div class="newsletter__inner">
           <label class="small">Your email</label>
-          <input type="email" placeholder="your@email.com" class="newsletter__input">
+          <input id="email1" type="email" placeholder="your@email.com" class="newsletter__input" onfocus="cleanErrors()">
         </div>
-        <button type="submit" class="button button--dark">Submit</button>
+        <button type="submit" class="button button--dark button-submit-js">Submit</button>
+      </form>
+    </div>
+    <label class="text--big c--red error error-newsletter-js"></label>
+    <div class="newsletter-result newsletter-result-js">
+      <img class="img-success" src="./images/success@2x.png">
+      <div class="newsletter-result__wrapper">
+        <p class="text">Your request has been sent.</p>
+        <p class="text--bold">Thank you! 🙌 </p>
       </div>
     </div>
   </div>

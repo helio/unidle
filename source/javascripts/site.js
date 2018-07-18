@@ -46,7 +46,7 @@ openModal.forEach((el, i) =>
 
 closeModal.addEventListener("click", toggleModal);
 
-// Calculator
+// Calculator --- This code is just to demonstrate the result state
 
 function results(source) {
   var id = source.id;
@@ -76,4 +76,72 @@ document.onclick = e => {
 
     document.querySelector("#" + str).scrollIntoView({ behavior: "smooth" });
   }
+};
+
+//SUBMIT NEWSLETTER --- This code is just to demonstrate the different states in the submission forms.
+
+// Regular Expression For Email
+const emailReg = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
+
+var label1 = document.getElementsByClassName("error-newsletter-js")[0];
+var label2 = document.getElementsByClassName("error-newsletter-js")[1];
+const error = false;
+
+var newsletterForm1 = document.getElementsByClassName("newsletter-js")[0];
+var newsletterForm2 = document.getElementsByClassName("newsletter-js")[1];
+
+var sucess1 = document.getElementsByClassName("newsletter-result-js")[0];
+var sucess2 = document.getElementsByClassName("newsletter-result-js")[1];
+
+const submitNewsletterTop = () => {
+  var email1 = document.getElementById("email1").value;
+
+  // Conditions
+  if (email1 === "") {
+    label1.innerHTML = "Please write your email!";
+    return false;
+  }
+
+  if (error) {
+    label1.innerHTML = "Something went wrong! Please try again!";
+    return false;
+  }
+
+  if (email1 !== "" && email1.match(emailReg)) {
+    newsletterForm1.style.display = "none";
+
+    sucess1.style.display = "flex";
+
+    return false;
+  }
+  return false;
+};
+
+const submitNewsletterBottom = () => {
+  var email2 = document.getElementById("email2").value;
+
+  // Conditions
+  if (email2 === "") {
+    label2.innerHTML = "Please write your email!";
+    return false;
+  }
+
+  if (error) {
+    label2.innerHTML = "Something went wrong! Please try again!";
+    return false;
+  }
+
+  if (email2 !== "" && email2.match(emailReg)) {
+    newsletterForm2.style.display = "none";
+
+    sucess2.style.display = "flex";
+
+    return false;
+  }
+  return false;
+};
+
+const cleanErrors = () => {
+  label1.innerHTML = "";
+  label2.innerHTML = "";
 };
