@@ -62,3 +62,18 @@ function results(source) {
     results.style.display = "none";
   }
 }
+
+// SMOOTH SCROLL
+document.onclick = e => {
+  var title = e.target.title;
+
+  if (
+    title === "calculator" ||
+    title === "how-it-works" ||
+    title === "our-vision"
+  ) {
+    var str = e.target.title;
+
+    document.querySelector("#" + str).scrollIntoView({ behavior: "smooth" });
+  }
+};
