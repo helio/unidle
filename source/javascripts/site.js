@@ -150,12 +150,12 @@ const cleanErrors = () => {
 async function getStarFromGit() {
   var gitCounter = document.getElementsByClassName("git-counter-js")[0];
 
-  let data = await await fetch("https://api.github.com/repos/helio/unidle")
+  await fetch("https://api.github.com/repos/zeit/next.js")
     .then(res => res.json())
     .then(obj => {
       gitCounter.innerHTML = obj.stargazers_count;
     })
-    .catch(err => {
+    .catch(() => {
       return "Unavailable";
     });
 }
