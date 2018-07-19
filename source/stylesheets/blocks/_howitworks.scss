@@ -54,6 +54,8 @@
 
     border-radius: 8px;
 
+    cursor: pointer;
+
     @media (max-width: 768px) {
       margin-top: 40px;
     }
@@ -65,11 +67,10 @@
       left: 0;
 
       display: block;
-
       width: 100%;
       height: 100%;
 
-      content: '';
+      content: "";
 
       background-color: rgba($dark-grey, 0.6);
 
@@ -78,7 +79,6 @@
 
     // .how__video:hover
     &:hover {
-
       // .how__video:hover:after
       &:after {
         background-color: rgba($dark-grey, 0.5);
@@ -88,6 +88,16 @@
       & .play {
         background-color: rgba($white, 0.2);
       }
+    }
+  }
+  // .how__player
+  &__player {
+    flex-basis: 50%;
+    flex-grow: 0;
+
+    width: 100%;
+    iframe {
+      width: 100%;
     }
   }
 
@@ -141,5 +151,82 @@
     h4 + .text {
       padding-top: 12px;
     }
+  }
+}
+
+/* The Modal (background) */
+.modal-wrapper {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba($dark-grey, 0.95);
+
+  animation-name: opacity;
+  animation-duration: 0.3s;
+
+  /* Modal Content */
+  //.modal-wrapper__content
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    z-index: 10;
+
+    animation-name: modal;
+    animation-duration: 0.6s;
+
+    @media only screen and (max-width: 700px) {
+      width: 100%;
+      padding: 16px;
+    }
+  }
+
+  /* The Close Button */
+  //.modal-wrapper__close
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: $white;
+
+    transition: 0.3s;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal {
+  from {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
   }
 }

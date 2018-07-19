@@ -8,10 +8,11 @@
     <!-- Use the title from a page's frontmatter if it has one -->
     <title><%= current_page.data.title || "Middleman" %></title>
     <%= stylesheet_link_tag "site" %>
+    <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body>
     <%= yield %>
     <%= javascript_include_tag "site" %>
-    <%= javascript_include_tag "smoothscroll" %>
+    <%= javascript_include_tag "smoothscroll" %> 
   </body>
 </html>

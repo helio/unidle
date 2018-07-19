@@ -7,9 +7,13 @@
       </h1>
         <span title="calculator" class="button how__button">Start now</span>
     </div>
-    <div class="how__video">
-      <img src="/images/video.png">
-      <a href="#" class="play"></a>
+    <div id="thumb" class="how__video">
+      <img src="/images/video-thumb.png">
+      <span class="play"></span>
+    </div>
+    <div id="modalVideo" class="modal-wrapper">
+      <span class="modal-wrapper__close"><img src="/images/cross.svg" with="32" height="32"></span>
+       <div id="video-js" class="modal-wrapper__content how__player" data-vimeo-defer></div>
     </div>
   </div>
   <div class="how__cols">
