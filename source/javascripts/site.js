@@ -145,3 +145,22 @@ const cleanErrors = () => {
   label1.innerHTML = "";
   label2.innerHTML = "";
 };
+
+// GET STARS FROM GITHUB
+async function getStarFromGit(){
+  var gitCounter = document.getElementsByClassName("git-counter-js")[0];
+
+  let data = await (await (fetch("https://api.github.com/repos/helio/unidle")
+    .then(res => res.json())
+    .then(obj => { 
+      gitCounter.innerHTML = obj.stargazers_count
+    })
+    .catch(err => {
+      return "Unavailable";
+    })
+  ))
+  
+
+}
+getStarFromGit();
+
