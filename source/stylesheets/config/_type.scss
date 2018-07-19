@@ -95,6 +95,11 @@ a {
   &--big {
     font-size: 18px;
   }
+
+  // Bold modifier
+  &--bold {
+    font-weight: bold;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -122,6 +127,10 @@ a {
 
 .c--orange {
   color: $orange;
+}
+
+.c--red {
+  color: $red;
 }
 
 .c--grey {
