@@ -150,7 +150,7 @@ const cleanErrors = () => {
 async function getStarFromGit() {
   var gitCounter = document.getElementsByClassName("git-counter-js")[0];
 
-  await fetch("https://api.github.com/repos/zeit/next.js")
+  await fetch("https://api.github.com/repos/helio/unidle")
     .then(res => res.json())
     .then(obj => {
       gitCounter.innerHTML = obj.stargazers_count;
