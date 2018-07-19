@@ -147,20 +147,66 @@ const cleanErrors = () => {
 };
 
 // GET STARS FROM GITHUB
-async function getStarFromGit(){
+async function getStarFromGit() {
   var gitCounter = document.getElementsByClassName("git-counter-js")[0];
 
-  let data = await (await (fetch("https://api.github.com/repos/helio/unidle")
+  await fetch("https://api.github.com/repos/helio/unidle")
     .then(res => res.json())
-    .then(obj => { 
-      gitCounter.innerHTML = obj.stargazers_count
+    .then(obj => {
+      gitCounter.innerHTML = obj.stargazers_count;
     })
-    .catch(err => {
+    .catch(() => {
       return "Unavailable";
-    })
-  ))
-  
-
+    });
 }
 getStarFromGit();
 
+// VIDEO PLAYER
+var options = {
+  id: 53018096,
+  width: 700,
+  playsinline: false
+};
+
+// Will create inside the video-js div:
+
+var player = new Vimeo.Player("video-js", options);
+
+// Get the modal
+var modalWrapper = document.getElementById("modalVideo");
+
+var img = document.getElementById("thumb");
+
+var body = document.getElementsByTagName("body")[0];
+
+function checkBodyScroll() {
+  if (body.style.position === "fixed") {
+    body.style.position = "initial";
+  } else {
+    body.style.position = "fixed";
+  }
+}
+
+img.onclick = function() {
+  checkBodyScroll();
+  modalWrapper.style.display = "block";
+  player.play();
+};
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("modal-wrapper__close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  checkBodyScroll();
+  modalWrapper.style.display = "none";
+  player.pause();
+};
+
+window.onclick = function(event) {
+  if (event.target === modalWrapper) {
+    checkBodyScroll();
+    modalWrapper.style.display = "none";
+    player.pause();
+  }
+};
