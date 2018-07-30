@@ -16,7 +16,7 @@ function updateRangeValue(element, value) {
 }
 
 for (var i = 0; i < rangeEl.length; i++) {
-  rangeEl[i].addEventListener("input", function(e) {
+  rangeEl[i].addEventListener("input", function (e) {
     updateRangeBar(e);
     updateRangeValue(this, this.value);
   });
@@ -184,10 +184,12 @@ function checkBodyScroll() {
     body.style.position = "initial";
   } else {
     body.style.position = "fixed";
+    body.style.left = "0";
+    body.style.right = "0";
   }
 }
 
-img.onclick = function() {
+img.onclick = function () {
   checkBodyScroll();
   modalWrapper.style.display = "block";
   player.play();
@@ -197,13 +199,13 @@ img.onclick = function() {
 var span = document.getElementsByClassName("modal-wrapper__close")[0];
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   checkBodyScroll();
   modalWrapper.style.display = "none";
   player.pause();
 };
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target === modalWrapper) {
     checkBodyScroll();
     modalWrapper.style.display = "none";
