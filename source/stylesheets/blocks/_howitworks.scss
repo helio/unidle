@@ -151,13 +151,17 @@
     h4 + .text {
       padding-top: 12px;
     }
+  }
+  
+  // .how__link 
+  &__link {
+    transition: opacity .3s ease;
+    margin-top: 16px;
+    display: block;
+    font-weight: bold;
 
-    a {
-      transition: opacity .3s ease;
-
-      &:hover {
-        opacity: .6;
-      }
+    &:hover {
+      opacity: .6;
     }
   }
 }

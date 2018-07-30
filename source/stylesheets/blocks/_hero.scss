@@ -63,7 +63,7 @@
     @media (max-width: 1024px) {
       display: block;
 
-      margin-top: -40px;
+      margin-top: 0;
     }
 
     // .hero__image:after
@@ -85,7 +85,7 @@
 
       @media (max-width: 1024px) {
         max-width: 650px;
-        margin-right: 0;
+        margin-right: -32px;
       }
     }
   }
