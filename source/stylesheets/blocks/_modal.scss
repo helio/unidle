@@ -19,10 +19,14 @@
   }
 
   .card {
-    max-width: 380px;
+    max-width: 30vw;
     overflow: visible;
     max-height: none;
     display: none;
+
+    .card__inner {
+      padding: 2vw;
+    }
 
     &__more {
       display: none;
