@@ -41,3 +41,8 @@ button,input[type="reset"],input[type="button"],input[type="submit"]{overflow:vi
 textarea{overflow:auto;vertical-align:top;}
 select[multiple]{vertical-align:top;}
 img{display:block;width:100%;}
+
+// prevent horizontal scroll
+body, html {
+  overflow-x: hidden 
+}
