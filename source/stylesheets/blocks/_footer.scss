@@ -142,6 +142,8 @@
     border-radius: 4px;
     background-color: $orange;
 
+    transition: all .3s ease;
+
     // .github__star:hover
     &:hover {
       background-color: darken($orange , 10%);

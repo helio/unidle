@@ -151,6 +151,14 @@
     h4 + .text {
       padding-top: 12px;
     }
+
+    a {
+      transition: opacity .3s ease;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
   }
 }
 
