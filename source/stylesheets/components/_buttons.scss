@@ -24,6 +24,8 @@
 
   -webkit-appearance: none;
 
+  transition: all .3s ease;
+
   // .button + .button
   & + & {
     margin-left: 16px;
