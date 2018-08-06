@@ -40,7 +40,11 @@ page '/*.txt', layout: false
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
-# configure :build do
-#   activate :minify_css
-#   activate :minify_javascript
-# end
+# minify css / js
+configure :build do
+   activate :minify_css
+   activate :minify_javascript
+end
+
+# compress impages
+activate :imageoptim
