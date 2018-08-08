@@ -70,7 +70,8 @@ document.onclick = e => {
   if (
     title === "calculator" ||
     title === "how-it-works" ||
-    title === "our-vision"
+    title === "our-vision" ||
+    title === "start"
   ) {
     var str = e.target.title;
 
