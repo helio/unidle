@@ -9,31 +9,31 @@
         </a>
       </div>
       <div class="start__card">
-        <a href="#" class="text text--big start__link">
+        <a href="javascript:void(0)" class="text text--big start__link js-open-modal--start">
           <img src="/images/docker@2x.png" class="start__image">
           <p class="start__target">Docker</p>
         </a>
       </div>
       <div class="start__card">
-        <a href="#" class="text text--big start__link">
+        <a href="javascript:void(0)" class="text text--big start__link js-open-modal--start">
           <img src="/images/puppet@2x.png" class="start__image">
           <p class="start__target">Puppet</p>
         </a>
       </div>
       <div class="start__card">
-        <a href="#" class="text text--big start__link">
+        <a href="javascript:void(0)" class="text text--big start__link js-open-modal--start">
           <img src="/images/nutanix@2x.png" class="start__image">
           <p class="start__target">Nutanix</p>
         </a>
       </div>
       <div class="start__card">
-        <a href="#" class="text text--big start__link">
+        <a href="javascript:void(0)" class="text text--big start__link js-open-modal--start">
           <img src="/images/openshift@2x.png" class="start__image">
           <p class="start__target">OpenShift</p>
         </a>
       </div>
       <div class="start__card">
-        <a href="#" class="text text--big start__link">
+        <a href="javascript:void(0)" class="text text--big start__link js-open-modal--start">
           <img src="/images/kubernetes@2x.png" class="start__image">
           <p class="start__target">Kubernetes</p>
         </a>
@@ -41,3 +41,31 @@
     </ul>
   </div>
 </section>
+
+<div class="modal js-modal--start">
+  <div class="modal__bg js-close-modal--start"></div>
+  <div class="start__modal">
+
+    <p class="text">
+      <strong>Not ready to start, yet.</strong><br/>
+      But you could stay in touch and join our list to be the first to know.
+    </p>
+
+    <form class="newsletter newsletter-js" action="#" method="post" onsubmit="return submitNewsletterModal()">
+      <div class="newsletter__inner">
+        <label class="small">Your email</label>
+        <input id="email3" type="email" placeholder="your@email.com" class="newsletter__input" onfocus="cleanErrors()" />
+      </div>
+      <button type="submit" class="button button--dark button-submit-js">Submit</button>
+    </form>
+
+    <label class="text--big c--red error error-newsletter-js"></label>
+    <div class="newsletter-result newsletter-result-js">
+      <img class="img-success" src="./images/success@2x.png">
+      <div class="newsletter-result__wrapper">
+        <p class="text">Your request has been sent.</p>
+        <p class="text--bold">Thank you! 🙌 </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -89,4 +89,29 @@
       }
     }
   }
+
+  &__modal {
+    background: #fff url("../images/not-ready@2x.png") left center/auto 100%
+      no-repeat;
+    display: none;
+    z-index: 9;
+    border-radius: 4px;
+    padding: 50px;
+    padding-left: 230px;
+
+    @media (max-width: 700px) {
+      padding: 10px;
+      background: #fff;
+    }
+
+    .text {
+      max-width: 250px;
+    }
+  }
+}
+
+.is-open-start__modal {
+  .start__modal {
+    display: block;
+  }
 }

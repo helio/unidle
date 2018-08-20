@@ -16,7 +16,7 @@ function updateRangeValue(element, value) {
 }
 
 for (var i = 0; i < rangeEl.length; i++) {
-  rangeEl[i].addEventListener("input", function (e) {
+  rangeEl[i].addEventListener("input", function(e) {
     updateRangeBar(e);
     updateRangeValue(this, this.value);
   });
@@ -45,6 +45,21 @@ openModal.forEach((el, i) =>
 );
 
 closeModal.addEventListener("click", toggleModal);
+
+// Getting Start Modal
+var openModalStart = document.querySelectorAll(".js-open-modal--start");
+var modalStart = document.querySelector(".js-modal--start");
+var closeModalStart = document.querySelector(".js-close-modal--start");
+var toggleModalStart = function() {
+  html.classList.toggle("scroll-lock");
+  modalStart.classList.toggle("is-open-start__modal");
+};
+
+openModalStart.forEach((el, i) =>
+  el.addEventListener("click", toggleModalStart)
+);
+
+closeModalStart.addEventListener("click", toggleModalStart);
 
 // Calculator --- This code is just to demonstrate the result state
 
@@ -86,13 +101,16 @@ const emailReg = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
 
 var label1 = document.getElementsByClassName("error-newsletter-js")[0];
 var label2 = document.getElementsByClassName("error-newsletter-js")[1];
+var label3 = document.getElementsByClassName("error-newsletter-js")[2];
 const error = false;
 
 var newsletterForm1 = document.getElementsByClassName("newsletter-js")[0];
 var newsletterForm2 = document.getElementsByClassName("newsletter-js")[1];
+var newsletterForm3 = document.getElementsByClassName("newsletter-js")[2];
 
 var sucess1 = document.getElementsByClassName("newsletter-result-js")[0];
 var sucess2 = document.getElementsByClassName("newsletter-result-js")[1];
+var sucess3 = document.getElementsByClassName("newsletter-result-js")[2];
 
 const submitNewsletterTop = () => {
   var email1 = document.getElementById("email1").value;
@@ -142,9 +160,34 @@ const submitNewsletterBottom = () => {
   return false;
 };
 
+const submitNewsletterModal = () => {
+  var email3 = document.getElementById("email3").value;
+
+  // Conditions
+  if (email3 === "") {
+    label3.innerHTML = "Please write your email!";
+    return false;
+  }
+
+  if (error) {
+    label3.innerHTML = "Something went wrong! Please try again!";
+    return false;
+  }
+
+  if (email3 !== "" && email3.match(emailReg)) {
+    newsletterForm3.style.display = "none";
+
+    sucess3.style.display = "flex";
+
+    return false;
+  }
+  return false;
+};
+
 const cleanErrors = () => {
   label1.innerHTML = "";
   label2.innerHTML = "";
+  label3.innerHTML = "";
 };
 
 // GET STARS FROM GITHUB
@@ -190,7 +233,7 @@ function checkBodyScroll() {
   }
 }
 
-img.onclick = function () {
+img.onclick = function() {
   checkBodyScroll();
   modalWrapper.style.display = "block";
   player.play();
@@ -200,13 +243,13 @@ img.onclick = function () {
 var span = document.getElementsByClassName("modal-wrapper__close")[0];
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+span.onclick = function() {
   checkBodyScroll();
   modalWrapper.style.display = "none";
   player.pause();
 };
 
-window.onclick = function (event) {
+window.onclick = function(event) {
   if (event.target === modalWrapper) {
     checkBodyScroll();
     modalWrapper.style.display = "none";
