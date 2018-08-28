@@ -1,168 +1,168 @@
 <section id="calculator" class="calc calculator-js">
-  <div class="calc__wrapper">
-    <div class="calc__inner">
-      <h1 class="display c--white a--center">Calculate your waste</h1>
+    <div class="calc__wrapper" id="calculator-form">
+        <div class="calc__inner">
+            <h1 class="display c--white a--center">Calculate your waste</h1>
 
-      <form class="form">
-        <div class="form__row">
-          <div class="form__cell">
-            <label class="small small--upper c--white">
-              Sever cost
-            </label>
-            <div class="input">
-              <div class="input__type">
-                $
-              </div>
-              <input id="server-cost" type="text" class="input__input input__input--pre" placeholder="0.00" value="">
-            </div>
-          </div>
-          <div class="form__cell">
-            <label class="small small--upper c--white">
-              CPU type
-            </label>
-            <div class="input">
-              <select class="input__input input__input--select">
-                <option>Intel i3, i5, i7</option>
-                <option>Intel Xeon E5</option>
-                <option>Intel Xeon D</option>
-                <option>AMD EPYC</option>
-              </select>
-            </div>
-          </div>
+            <form class="form">
+                <div class="form__row">
+                    <div class="form__cell">
+                        <label class="small small--upper c--white">
+                            Sever cost
+                        </label>
+                        <div class="input">
+                            <div class="input__type">
+                                $
+                            </div>
+                            <input id="server-cost" type="text" class="input__input input__input--pre"
+                                   placeholder="0.00" value="">
+                        </div>
+                    </div>
+                    <div class="form__cell">
+                        <label class="small small--upper c--white">
+                            Country of Operation
+                        </label>
+                        <div class="input">
+                            <select id="country" name="country" class="input__input input__input--select">
+                                <option value="DE">Germany</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SW">Sweden</option>
+                                <option value="OTHER">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__cell">
+                        <label class="small small--upper c--white">
+                            Available memory (gb)
+                        </label>
+                        <div class="input">
+                            <input id="mem" name="mem" type="text" class="input__input" placeholder="4">
+                        </div>
+                    </div>
+                    <div class="form__cell">
+                        <label class="small small--upper c--white">
+                            CPU Cores (without HT)
+                        </label>
+                        <div class="input">
+                            <select id="cores" name="cores" class="input__input input__input--select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="7">5-10</option>
+                                <option value="15">10-20</option>
+                                <option value="50">20+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <p class="small c--white small--upper form__title">Your workloads average resource usage</p>
+                <div class="form__row form__row--range">
+                    <label class="small small--upper c--white">
+                        CPU Usage
+                    </label>
+                    <div class="range">
+                        <input id="cpu-range" name="cpu-range" type="range" min="0" max="100" step="10" value="50" class="js-range-item">
+                        <label class="small small--upper c--white js-range-value range__label">50%</label>
+                    </div>
+                </div>
+                <div class="form__row form__row--range">
+                    <label class="small small--upper c--white">
+                        Memory Usage
+                    </label>
+                    <div class="range">
+                        <input id="memory-range" name="memory-range" type="range" min="0" max="100" step="10" value="50" class="js-range-item">
+                        <label class="small small--upper c--white js-range-value range__label">50%</label>
+                    </div>
+                </div>
+                <div class="form__row form__row--range">
+                    <label class="small small--upper c--white">
+                        Daily Volatility
+                    </label>
+                    <div class="range">
+                        <input id="volat-range" name="volat-range" type="range" min="0" max="100" step="10" value="50" class="js-range-item">
+                        <label class="small small--upper c--white js-range-value range__label">50%</label>
+                    </div>
+                </div>
+                <div class="form__row form__row--range">
+                    <label class="small small--upper c--white">
+                        Parallelability
+                    </label>
+                    <div class="range">
+                        <input id="parall-range" name="parall-range" type="range" min="0" max="100" step="10" value="50" class="js-range-item">
+                        <label class="small small--upper c--white js-range-value range__label">50%</label>
+                    </div>
+                </div>
+                <input id="calculate" type="button" value="Calculate your waste"
+                       class="button button--wide form__button" onclick="results(this)">
+            </form>
         </div>
-        <div class="form__row">
-          <div class="form__cell">
-            <label class="small small--upper c--white">
-              Available memory (gb)
-            </label>
-            <div class="input">
-              <input type="text" class="input__input" placeholder="4">
-            </div>
-          </div>
-          <div class="form__cell">
-            <label class="small small--upper c--white">
-              CPU Cores (without HT)
-            </label>
-            <div class="input">
-              <select class="input__input input__input--select">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>5-10</option>
-                <option>10-20</option>
-                <option>20+</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <p class="small c--white small--upper form__title">Your workloads average resource usage</p>
-        <div class="form__row form__row--range">
-          <label class="small small--upper c--white">
-            CPU
-          </label>
-          <div class="range">
-            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
-            <label class="small small--upper c--white js-range-value range__label">50%</label>
-          </div>
-        </div>
-        <div class="form__row form__row--range">
-          <label class="small small--upper c--white">
-            Memory
-          </label>
-          <div class="range">
-            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
-            <label class="small small--upper c--white js-range-value range__label">50%</label>
-          </div>
-        </div>
-        <div class="form__row form__row--range">
-          <label class="small small--upper c--white">
-            Daily Volatility
-          </label>
-          <div class="range">
-            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
-            <label class="small small--upper c--white js-range-value range__label">50%</label>
-          </div>
-        </div>
-        <div class="form__row form__row--range">
-          <label class="small small--upper c--white">
-            Parallelability
-          </label>
-          <div class="range">
-            <input type="range" min="0" max="100" step="5" value="50" class="js-range-item">
-            <label class="small small--upper c--white js-range-value range__label">50%</label>
-          </div>
-        </div>
-        <input id="calculate" type="button" value="Calculate your waste" class="button button--wide form__button" onclick="results(this)">
-      </form>
     </div>
-  </div>
-</section>
-<section id="calculator" class="calc results calculator-results-js ">
-  <div class="calc__wrapper">
-    <div class="calc__inner">
-      <h1 class="display c--white a--center">Calculate your waste</h1>
-      <form class="form">
-        <div class="form__row">
-          <div class="form__cell a--center">
-            <label class="small small--upper c--white">
-              Price
-            </label>
-            <h2 class="title c--white">$38.00</h2>
-          </div>
-          <div class="form__cell a--center">
-             <label class="small small--upper c--white">
-              Waste
-            </label>
-            <h2 class="title c--white">3.6 tons</h2>
-          </div>
+    <div class="calc__wrapper" id="calculator-result" style="display:none;">
+        <div class="calc__inner">
+            <h1 class="display c--white a--center">Calculate your waste</h1>
+            <form class="form">
+                <div class="form__row">
+                    <div class="form__cell a--center" style="width: calc(100% - 12px);">
+                        <label class="small small--upper c--white">
+                            Price
+                        </label>
+                        <h2 class="title c--white">$<span id="savings">38.00</span></h2>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="form__row">
+                    <div class="form__cell form__cell--full form__cell--balance a--center">
+                        <label class="small small--upper c--white">
+                            Total CO<sub>2</sub> Footprint
+                        </label>
+                        <h2 class="title c--white"><span id="co2">126</span> tons</h2>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__cell form__cell--full a--center">
+                        <div class="results__trees-wrapper">
+                            <div class="results__trees-wrapper__row">
+                                <img class="thumb" src="./images/tree-active.svg">
+                                <img class="thumb" src="./images/tree-active.svg">
+                                <img class="thumb" src="./images/tree-active.svg">
+                                <img class="thumb" src="./images/tree-active.svg">
+                            </div>
+                            <div class="results__trees-wrapper__row">
+                                <img class="thumb" src="./images/tree-active.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                            </div>
+                            <div class="results__trees-wrapper__row">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                            </div>
+                            <div class="results__trees-wrapper__row">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                                <img class="thumb" src="./images/tree.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="reset" type="button" class="button button--reset" onclick="results(this)">
+                    <img class="icon-reset" src="./images/icon-reset.svg">Reset
+                </button>
+                <span class="small c--white">
+        *We calculate based on median server resource usage and on median emissions based on you country's energy mix.
+        If you have any questions, don't hestitate contacting our experts on <a class="c--white"
+                                                                                href="mailto:team@idling.host">team@</a>.
+      </span>
+            </form>
+
         </div>
-        <div class="divider"></div>
-        <div class="form__row">
-          <div class="form__cell form__cell--full form__cell--balance a--center">
-            <label class="small small--upper c--white">
-              Balance
-            </label>
-            <h2 class="title c--white">126 tons</h2>
-          </div>
-        </div>
-        <div class="form__row">
-          <div class="form__cell form__cell--full a--center">
-            <div class="results__trees-wrapper">
-              <div class="results__trees-wrapper__row">
-                <img class="thumb" src="./images/tree-active.svg">
-                <img class="thumb" src="./images/tree-active.svg">
-                <img class="thumb" src="./images/tree-active.svg">
-                <img class="thumb" src="./images/tree-active.svg">
-              </div>
-              <div class="results__trees-wrapper__row">
-                <img class="thumb" src="./images/tree-active.svg">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-              </div>
-              <div class="results__trees-wrapper__row">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-              </div>
-              <div class="results__trees-wrapper__row">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-                <img class="thumb" src="./images/tree.svg">
-              </div>
-            </div>
-          </div>
-        </div>
-       
-        <button id="reset" type="button" class="button button--reset" onclick="results(this)">
-          <img class="icon-reset" src="./images/icon-reset.svg">Reset
-        </button>
-      </form>
     </div>
-  </div>
 </section>

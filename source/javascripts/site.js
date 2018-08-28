@@ -61,15 +61,26 @@ openModalStart.forEach((el, i) =>
 
 closeModalStart.addEventListener("click", toggleModalStart);
 
-// Calculator --- This code is just to demonstrate the result state
+// Calculator --- the approach is: how many times could the servers take the exact same workload? this is the waste.
 
 function results(source) {
-  var id = source.id;
-  var hasResults = document.getElementById("server-cost").value;
-  var calc = document.querySelector(".calculator-js");
-  var results = document.querySelector(".calculator-results-js");
+  var usage = {
+      0: 0, 10: 50, 20: 65, 30: 75, 40: 83, 50: 87, 60: 90, 70: 93, 80: 95, 90: 97, 100: 100
+  };
+  var country = {
+      "DE": 516, "CH": 182, "SW": 30, "OTHER": 1000
+  };
 
-  if (id === "calculate" && hasResults !== "") {
+  var id = source.id;
+  var serverCosts = document.getElementById("server-cost").value;
+  var maxUsage = Math.max(document.getElementById("cpu-range").value, document.getElementById("memory-range").value);
+  var ecoMix = country[$('#country').value] / 1000;
+  var calc = document.querySelector("#calculator-form");
+  var results = document.querySelector("#calculator-result");
+
+  if (id === "calculate" && serverCosts) {
+    $('#savings').html((Math.round((serverCosts * 100 / maxUsage - serverCosts) * 100) / 100).toFixed(2));
+    $('#co2').html((Math.round((0.3*3*8760*ecoMix) * 100 / 100).toFixed(2)));
     calc.style.display = "none";
     results.style.display = "flex";
   } else {
@@ -77,6 +88,35 @@ function results(source) {
     results.style.display = "none";
   }
 }
+
+
+
+
+// counter
+
+$(function () {
+    var idle = {
+        0: 70, 1: 75, 2: 80, 3: 80, 4: 75, 5: 75, 6: 70, 7: 60, 8: 60, 9: 50, 10: 45, 11: 40,
+        12: 50, 13: 45, 14: 40, 15: 35, 16: 40, 17: 45, 18: 40, 19: 50, 20: 55, 21: 60, 22: 70, 23: 75, 24: 70
+    };
+    var targetPercentage = idle[(new Date()).getHours()];
+    var currentPercentage = 0;
+
+    while (currentPercentage < targetPercentage) {
+        currentPercentage++;
+
+        // normalize the scala so it will always take the same amount of time until the counter reaches it's goal
+        var currentFactor = currentPercentage * 100 / targetPercentage;
+
+        // factor quadratically to get the visual effect of a counter that's slowing down
+        setTimeout(function (currentPercentage) {
+                $('#idlePercentage').html(currentPercentage);
+            }, 1500 + Math.floor(currentFactor * currentFactor / 2) + currentPercentage, // add currentPercentage to avoid collision
+            currentPercentage
+        );
+    }
+});
+
 
 // SMOOTH SCROLL
 document.onclick = e => {
@@ -117,7 +157,7 @@ const submitNewsletterTop = () => {
 
   // Conditions
   if (email1 === "") {
-    label1.innerHTML = "Please write your email!";
+    label1.innerHTML = "Please provide your email!";
     return false;
   }
 
@@ -141,7 +181,7 @@ const submitNewsletterBottom = () => {
 
   // Conditions
   if (email2 === "") {
-    label2.innerHTML = "Please write your email!";
+    label2.innerHTML = "Please provide your email!";
     return false;
   }
 
@@ -165,7 +205,7 @@ const submitNewsletterModal = () => {
 
   // Conditions
   if (email3 === "") {
-    label3.innerHTML = "Please write your email!";
+    label3.innerHTML = "Please provide your email!";
     return false;
   }
 
