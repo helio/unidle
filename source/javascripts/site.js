@@ -3,23 +3,23 @@
 var rangeEl = document.getElementsByClassName("js-range-item");
 
 function updateRangeBar(e) {
-  var min = e.target.min,
-    max = e.target.max,
-    val = e.target.value;
+    var min = e.target.min,
+        max = e.target.max,
+        val = e.target.value;
 
-  e.target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+    e.target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
 }
 
 function updateRangeValue(element, value) {
-  var target = element.parentNode.getElementsByClassName("js-range-value")[0];
-  target.innerHTML = value + "%";
+    var target = element.parentNode.getElementsByClassName("js-range-value")[0];
+    target.innerHTML = value + "%";
 }
 
 for (var i = 0; i < rangeEl.length; i++) {
-  rangeEl[i].addEventListener("input", function(e) {
-    updateRangeBar(e);
-    updateRangeValue(this, this.value);
-  });
+    rangeEl[i].addEventListener("input", function (e) {
+        updateRangeBar(e);
+        updateRangeValue(this, this.value);
+    });
 }
 
 // Open Modal
@@ -31,17 +31,17 @@ const modal = document.querySelector(".js-modal");
 let openIndex;
 
 const toggleModal = (e, i) => {
-  e.preventDefault();
-  if (i >= 0) {
-    openIndex = i;
-  }
+    e.preventDefault();
+    if (i >= 0) {
+        openIndex = i;
+    }
 
-  html.classList.toggle("scroll-lock");
-  modal.classList.toggle(`is-open-${i >= 0 ? i : openIndex}`);
+    html.classList.toggle("scroll-lock");
+    modal.classList.toggle(`is-open-${i >= 0 ? i : openIndex}`);
 };
 
 openModal.forEach((el, i) =>
-  el.addEventListener("click", e => toggleModal(e, i))
+    el.addEventListener("click", e => toggleModal(e, i))
 );
 
 closeModal.addEventListener("click", toggleModal);
@@ -50,46 +50,68 @@ closeModal.addEventListener("click", toggleModal);
 var openModalStart = document.querySelectorAll(".js-open-modal--start");
 var modalStart = document.querySelector(".js-modal--start");
 var closeModalStart = document.querySelector(".js-close-modal--start");
-var toggleModalStart = function() {
-  html.classList.toggle("scroll-lock");
-  modalStart.classList.toggle("is-open-start__modal");
+var toggleModalStart = function () {
+    html.classList.toggle("scroll-lock");
+    modalStart.classList.toggle("is-open-start__modal");
 };
 
 openModalStart.forEach((el, i) =>
-  el.addEventListener("click", toggleModalStart)
+    el.addEventListener("click", toggleModalStart)
 );
 
 closeModalStart.addEventListener("click", toggleModalStart);
 
 // Calculator --- the approach is: how many times could the servers take the exact same workload? this is the waste.
 
-function results(source) {
-  var usage = {
-      0: 0, 10: 50, 20: 65, 30: 75, 40: 83, 50: 87, 60: 90, 70: 93, 80: 95, 90: 97, 100: 100
-  };
-  var country = {
-      "DE": 516, "CH": 182, "SW": 30, "OTHER": 1000
-  };
-
-  var id = source.id;
-  var serverCosts = document.getElementById("server-cost").value;
-  var maxUsage = Math.max(document.getElementById("cpu-range").value, document.getElementById("memory-range").value);
-  var ecoMix = country[$('#country').value] / 1000;
-  var calc = document.querySelector("#calculator-form");
-  var results = document.querySelector("#calculator-result");
-
-  if (id === "calculate" && serverCosts) {
-    $('#savings').html((Math.round((serverCosts * 100 / maxUsage - serverCosts) * 100) / 100).toFixed(2));
-    $('#co2').html((Math.round((0.3*3*8760*ecoMix) * 100 / 100).toFixed(2)));
-    calc.style.display = "none";
-    results.style.display = "flex";
-  } else {
-    calc.style.display = "flex";
-    results.style.display = "none";
-  }
+function printTrees(count) {
+    console.log(count);
+    var cols = 4;
+    var rows = 5;
+    var html='';
+    while (rows-- > 0) {
+        html += '<div class="results__trees-wrapper__row">\n';
+        var remaindingCols = cols;
+        while (remaindingCols-- > 0) {
+            html += '<img class="thumb" src="./images/tree' + (count-- > 0 ? '' : '-active') + '.svg">\n'
+        }
+        html += '</div>'
+    }
+    $('#trees').html(html);
 }
 
+function results(source) {
+    var usage = {
+        0: 0, 10: 50, 20: 65, 30: 75, 40: 83, 50: 87, 60: 90, 70: 93, 80: 95, 90: 97, 100: 100
+    };
+    var country = {
+        "DE": 516, "CH": 182, "SW": 30, "OTHER": 1000
+    };
 
+    var id = source.id;
+    var serverCosts = document.getElementById("server-cost").value;
+    var maxUsage = Math.max(document.getElementById("cpu-range").value, document.getElementById("memory-range").value);
+    var cpuNum = $('#cores').val();
+
+    var ecoMix = country[$('#country').val()] / 1000;
+
+    var calc = document.querySelector("#calculator-form");
+    var results = document.querySelector("#calculator-result");
+
+    var savings = (Math.round((serverCosts * 100 / maxUsage - serverCosts) * 100) / 100).toFixed(2);
+    var co2 = Math.floor(Math.round((0.3 * 3 * 8760 * ecoMix * cpuNum) * 100 / 100));
+
+    printTrees(Math.round(co2/5000));
+
+    if (id === "calculate" && serverCosts) {
+        $('#savings').html(savings);
+        $('#co2').html(co2);
+        calc.style.display = "none";
+        results.style.display = "flex";
+    } else {
+        calc.style.display = "flex";
+        results.style.display = "none";
+    }
+}
 
 
 // counter
@@ -120,18 +142,18 @@ $(function () {
 
 // SMOOTH SCROLL
 document.onclick = e => {
-  var title = e.target.title;
+    var title = e.target.title;
 
-  if (
-    title === "calculator" ||
-    title === "how-it-works" ||
-    title === "our-vision" ||
-    title === "start"
-  ) {
-    var str = e.target.title;
+    if (
+        title === "calculator" ||
+        title === "how-it-works" ||
+        title === "our-vision" ||
+        title === "start"
+    ) {
+        var str = e.target.title;
 
-    document.querySelector("#" + str).scrollIntoView({ behavior: "smooth" });
-  }
+        document.querySelector("#" + str).scrollIntoView({behavior: "smooth"});
+    }
 };
 
 //SUBMIT NEWSLETTER --- This code is just to demonstrate the different states in the submission forms.
@@ -153,103 +175,104 @@ var sucess2 = document.getElementsByClassName("newsletter-result-js")[1];
 var sucess3 = document.getElementsByClassName("newsletter-result-js")[2];
 
 const submitNewsletterTop = () => {
-  var email1 = document.getElementById("email1").value;
+    var email1 = document.getElementById("email1").value;
 
-  // Conditions
-  if (email1 === "") {
-    label1.innerHTML = "Please provide your email!";
+    // Conditions
+    if (email1 === "") {
+        label1.innerHTML = "Please provide your email!";
+        return false;
+    }
+
+    if (error) {
+        label1.innerHTML = "Something went wrong! Please try again!";
+        return false;
+    }
+
+    if (email1 !== "" && email1.match(emailReg)) {
+        newsletterForm1.style.display = "none";
+
+        sucess1.style.display = "flex";
+
+        return false;
+    }
     return false;
-  }
-
-  if (error) {
-    label1.innerHTML = "Something went wrong! Please try again!";
-    return false;
-  }
-
-  if (email1 !== "" && email1.match(emailReg)) {
-    newsletterForm1.style.display = "none";
-
-    sucess1.style.display = "flex";
-
-    return false;
-  }
-  return false;
 };
 
 const submitNewsletterBottom = () => {
-  var email2 = document.getElementById("email2").value;
+    var email2 = document.getElementById("email2").value;
 
-  // Conditions
-  if (email2 === "") {
-    label2.innerHTML = "Please provide your email!";
+    // Conditions
+    if (email2 === "") {
+        label2.innerHTML = "Please provide your email!";
+        return false;
+    }
+
+    if (error) {
+        label2.innerHTML = "Something went wrong! Please try again!";
+        return false;
+    }
+
+    if (email2 !== "" && email2.match(emailReg)) {
+        newsletterForm2.style.display = "none";
+
+        sucess2.style.display = "flex";
+
+        return false;
+    }
     return false;
-  }
-
-  if (error) {
-    label2.innerHTML = "Something went wrong! Please try again!";
-    return false;
-  }
-
-  if (email2 !== "" && email2.match(emailReg)) {
-    newsletterForm2.style.display = "none";
-
-    sucess2.style.display = "flex";
-
-    return false;
-  }
-  return false;
 };
 
 const submitNewsletterModal = () => {
-  var email3 = document.getElementById("email3").value;
+    var email3 = document.getElementById("email3").value;
 
-  // Conditions
-  if (email3 === "") {
-    label3.innerHTML = "Please provide your email!";
+    // Conditions
+    if (email3 === "") {
+        label3.innerHTML = "Please provide your email!";
+        return false;
+    }
+
+    if (error) {
+        label3.innerHTML = "Something went wrong! Please try again!";
+        return false;
+    }
+
+    if (email3 !== "" && email3.match(emailReg)) {
+        newsletterForm3.style.display = "none";
+
+        sucess3.style.display = "flex";
+
+        return false;
+    }
     return false;
-  }
-
-  if (error) {
-    label3.innerHTML = "Something went wrong! Please try again!";
-    return false;
-  }
-
-  if (email3 !== "" && email3.match(emailReg)) {
-    newsletterForm3.style.display = "none";
-
-    sucess3.style.display = "flex";
-
-    return false;
-  }
-  return false;
 };
 
 const cleanErrors = () => {
-  label1.innerHTML = "";
-  label2.innerHTML = "";
-  label3.innerHTML = "";
+    label1.innerHTML = "";
+    label2.innerHTML = "";
+    label3.innerHTML = "";
 };
 
 // GET STARS FROM GITHUB
 async function getStarFromGit() {
-  var gitCounter = document.getElementsByClassName("git-counter-js")[0];
+    var gitCounter = document.getElementsByClassName("git-counter-js")[0];
 
-  await fetch("https://api.github.com/repos/helio/setup")
-    .then(res => res.json())
-    .then(obj => {
-      gitCounter.innerHTML = obj.stargazers_count;
-    })
-    .catch(() => {
-      return "Unavailable";
-    });
+    await fetch("https://api.github.com/repos/helio/setup")
+        .then(res => res.json())
+        .then(obj => {
+            gitCounter.innerHTML = obj.stargazers_count;
+        })
+        .catch(() => {
+            return "Unavailable";
+        });
 }
+
 getStarFromGit();
 
 // VIDEO PLAYER
 var options = {
-  id: 283189706,
-  width: 700,
-  playsinline: false
+    id: 283189706,
+    width: 700,
+    playsinline: false
 };
 
 // Will create inside the video-js div:
@@ -264,35 +287,35 @@ var img = document.getElementById("thumb");
 var body = document.getElementsByTagName("body")[0];
 
 function checkBodyScroll() {
-  if (body.style.position === "fixed") {
-    body.style.position = "initial";
-  } else {
-    body.style.position = "fixed";
-    body.style.left = "0";
-    body.style.right = "0";
-  }
+    if (body.style.position === "fixed") {
+        body.style.position = "initial";
+    } else {
+        body.style.position = "fixed";
+        body.style.left = "0";
+        body.style.right = "0";
+    }
 }
 
-img.onclick = function() {
-  checkBodyScroll();
-  modalWrapper.style.display = "block";
-  player.play();
+img.onclick = function () {
+    checkBodyScroll();
+    modalWrapper.style.display = "block";
+    player.play();
 };
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("modal-wrapper__close")[0];
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  checkBodyScroll();
-  modalWrapper.style.display = "none";
-  player.pause();
-};
-
-window.onclick = function(event) {
-  if (event.target === modalWrapper) {
+span.onclick = function () {
     checkBodyScroll();
     modalWrapper.style.display = "none";
     player.pause();
-  }
+};
+
+window.onclick = function (event) {
+    if (event.target === modalWrapper) {
+        checkBodyScroll();
+        modalWrapper.style.display = "none";
+        player.pause();
+    }
 };
