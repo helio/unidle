@@ -64,7 +64,6 @@ closeModalStart.addEventListener("click", toggleModalStart);
 // Calculator --- the approach is: how many times could the servers take the exact same workload? this is the waste.
 
 function printTrees(count) {
-    console.log(count);
     var cols = 4;
     var rows = 5;
     var html='';
