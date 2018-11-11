@@ -66,7 +66,7 @@ closeModalStart.addEventListener("click", toggleModalStart);
 function printTrees(count) {
     var cols = 4;
     var rows = 5;
-    var html='';
+    var html = '';
     while (rows-- > 0) {
         html += '<div class="results__trees-wrapper__row">\n';
         var remaindingCols = cols;
@@ -99,13 +99,22 @@ function results(source) {
     var savings = (Math.round((serverCosts * 100 / maxUsage - serverCosts) * 100) / 100).toFixed(2);
     var co2 = Math.floor(Math.round((0.3 * 3 * 8760 * ecoMix * cpuNum) * 100 / 100));
 
-    printTrees(Math.round(co2/5000));
+    printTrees(Math.round(co2 / 5000));
 
     if (id === "calculate" && serverCosts) {
-        $('#savings').html(savings);
-        $('#co2').html(co2);
-        calc.style.display = "none";
-        results.style.display = "flex";
+
+        $.ajax({
+            url: 'https://hooks.zapier.com/hooks/catch/3301335/ajm9hl/',
+            type: 'post',
+            dataType: 'json',
+            data: $('#calcform').serialize(),
+            success: function () {
+                $('#savings').html(savings);
+                $('#co2').html(co2);
+                calc.style.display = "none";
+                results.style.display = "flex";
+            }
+        });
     } else {
         calc.style.display = "flex";
         results.style.display = "none";
@@ -155,100 +164,73 @@ document.onclick = e => {
     }
 };
 
-//SUBMIT NEWSLETTER --- This code is just to demonstrate the different states in the submission forms.
+
+//SUBMIT NEWSLETTER
 
 // Regular Expression For Email
 const emailReg = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
-
-var label1 = document.getElementsByClassName("error-newsletter-js")[0];
-var label2 = document.getElementsByClassName("error-newsletter-js")[1];
-var label3 = document.getElementsByClassName("error-newsletter-js")[2];
 const error = false;
 
-var newsletterForm1 = document.getElementsByClassName("newsletter-js")[0];
-var newsletterForm2 = document.getElementsByClassName("newsletter-js")[1];
-var newsletterForm3 = document.getElementsByClassName("newsletter-js")[2];
-
-var sucess1 = document.getElementsByClassName("newsletter-result-js")[0];
-var sucess2 = document.getElementsByClassName("newsletter-result-js")[1];
-var sucess3 = document.getElementsByClassName("newsletter-result-js")[2];
-
 const submitNewsletterTop = () => {
-    var email1 = document.getElementById("email1").value;
-
-    // Conditions
-    if (email1 === "") {
-        label1.innerHTML = "Please provide your email!";
-        return false;
-    }
-
-    if (error) {
-        label1.innerHTML = "Something went wrong! Please try again!";
-        return false;
-    }
-
-    if (email1 !== "" && email1.match(emailReg)) {
-        newsletterForm1.style.display = "none";
-
-        sucess1.style.display = "flex";
-
-        return false;
-    }
+    submitNewsletter(0, 'topForm');
     return false;
 };
 
 const submitNewsletterBottom = () => {
-    var email2 = document.getElementById("email2").value;
-
-    // Conditions
-    if (email2 === "") {
-        label2.innerHTML = "Please provide your email!";
-        return false;
-    }
-
-    if (error) {
-        label2.innerHTML = "Something went wrong! Please try again!";
-        return false;
-    }
-
-    if (email2 !== "" && email2.match(emailReg)) {
-        newsletterForm2.style.display = "none";
-
-        sucess2.style.display = "flex";
-
-        return false;
-    }
+    submitNewsletter(2, 'bottomForm');
     return false;
 };
 
 const submitNewsletterModal = () => {
-    var email3 = document.getElementById("email3").value;
+    submitNewsletter(1, window.interest);
+    return false;
+};
+
+const submitNewsletter = (id, interest = 'unknown') => {
+    var address = document.getElementById("email" + (id + 1)).value,
+        label = document.getElementsByClassName("error-newsletter-js")[id],
+        form = document.getElementsByClassName("newsletter-js")[id],
+        success = document.getElementsByClassName("newsletter-result-js")[id];
 
     // Conditions
-    if (email3 === "") {
-        label3.innerHTML = "Please provide your email!";
+    if (address === "") {
+        label.innerHTML = "Please provide your email!";
         return false;
     }
 
     if (error) {
-        label3.innerHTML = "Something went wrong! Please try again!";
+        label.innerHTML = "Something went wrong! Please try again!";
         return false;
     }
 
-    if (email3 !== "" && email3.match(emailReg)) {
-        newsletterForm3.style.display = "none";
+    if (address !== "" && address.match(emailReg)) {
+        $.ajax({
+            url: 'https://hooks.zapier.com/hooks/catch/3301335/wl56s5/',
+            type: 'post',
+            dataType: 'json',
+            data: {email: address, interest: interest},
+            success: function () {
+                form.style.display = "none";
+                success.style.display = "flex";
 
-        sucess3.style.display = "flex";
-
-        return false;
+                setTimeout(function () {
+                    document.getElementById("email" + (id + 1)).value = '';
+                    form.style.display = "flex";
+                    success.style.display = "none";
+                }, 5000);
+            },
+            error: function () {
+                label.innerHTML = "Something went wrong! Please try again!";
+            }
+        });
+        return true;
     }
     return false;
 };
-
 const cleanErrors = () => {
-    label1.innerHTML = "";
-    label2.innerHTML = "";
-    label3.innerHTML = "";
+    Array.prototype.forEach.call(document.getElementsByClassName("error-newsletter-js"), item => {
+        item.innerHTML = ""
+    });
 };
 
 // GET STARS FROM GITHUB
