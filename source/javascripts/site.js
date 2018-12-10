@@ -233,6 +233,14 @@ const cleanErrors = () => {
     });
 };
 
+
+// ridiculously simple Spam protection
+window.setTimeout($(function() {
+    $('a[href^="mailto:"]').each(function() {
+        this.href += 'helio.exchange';
+    });
+}), 500);
+
 // GET STARS FROM GITHUB
 async function getStarFromGit() {
     var gitCounter = document.getElementsByClassName("git-counter-js")[0];
